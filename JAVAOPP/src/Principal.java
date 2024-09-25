@@ -1,4 +1,6 @@
+import com.antonio.screenmatch.calculos.CalculadoraDeTiempo;
 import com.antonio.screenmatch.modelos.Pelicula;
+import com.antonio.screenmatch.modelos.Series;
 
 public class Principal {
     public static void main(String[] args) {
@@ -15,17 +17,30 @@ public class Principal {
         System.out.println(miPelicula.getTotalDelasEvaluaciones());
         System.out.println(miPelicula.calculaMedia());
 
+        Series casaDragon = new Series();
+        casaDragon.setNombre("La casa del dragón");
+        casaDragon.setFechaDeLanzamiento(2022);
+        casaDragon.setTemporadas(1);
+        casaDragon.setMinutosPorEpisodio(50);
+        casaDragon.setEpisodioPorTemporada(10);
+        casaDragon.muestraFichaTecnica();
+        System.out.println(casaDragon.getDuracionEnMinutos());
+
+        Pelicula otraPelicula = new Pelicula();
+        otraPelicula.setNombre("Matrix");
+        otraPelicula.setFechaDeLanzamiento(1998);
+        otraPelicula.setDuracionEnMinutos(180);
+
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(casaDragon);
+        calculadora.incluye(otraPelicula);
+        System.out.println("Lista de tiempo necesario para ver tus  titulos" + calculadora.getTiempoTotal() + "minutos ");
 
 
 
 
 
-
-
-//        Pelicula otraPelicula = new Pelicula();
-//        otraPelicula.setNombre("Matrix");
-//        otraPelicula.setFechaDeLanzamiento(1998);
-//        otraPelicula.setDuracionEnMinutos(180);
 
     }
 }
